@@ -187,15 +187,6 @@ function showConfirmationPopup() {
     }
 }
 
-// Add click event listener to the "Yes" button on the first screen
-document.getElementById('yesButton').addEventListener('click', () => {
-    // Show confetti
-    showConfetti();
-
-    // Show two different GIFs on the left and right sides of the page
-    showGifs();
-});
-
 function showConfetti() {
     // Add confetti animation
     for (let i = 0; i < 100; i++) {
@@ -206,6 +197,28 @@ function showConfetti() {
         confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
         document.body.appendChild(confetti);
     }
+
+    // Remove the "Yes" and "No" buttons
+    const yesButton = document.getElementById('yesButton');
+    const noButton = document.getElementById('noButton');
+    if (yesButton) yesButton.remove();
+    if (noButton) noButton.remove();
+
+    // Display the new image (your-image2.jpg) in the center of the screen
+    showNewImage();
+}
+
+function showNewImage() {
+    const newImage = document.createElement('img');
+    newImage.src = 'your-image2.jpg'; // Replace with your image path
+    newImage.style.position = 'fixed';
+    newImage.style.top = '50%';
+    newImage.style.left = '50%';
+    newImage.style.transform = 'translate(-50%, -50%)';
+    newImage.style.zIndex = '1002'; // Ensure it's on top of everything else
+    newImage.style.maxWidth = '90%'; // Ensure it doesn't overflow the screen
+    newImage.style.maxHeight = '90%';
+    document.body.appendChild(newImage);
 }
 
 function showGifs() {
@@ -237,6 +250,15 @@ function showGifs() {
     document.body.appendChild(gif2);
     console.log("GIF 2 added:", gif2.src);
 }
+
+// Add click event listener to the "Yes" button on the first screen
+document.getElementById('yesButton').addEventListener('click', () => {
+    // Show confetti
+    showConfetti();
+
+    // Show two different GIFs on the left and right sides of the page
+    showGifs();
+});
 
 // Add click event listener to the "No" button
 document.getElementById('noButton').addEventListener('click', () => {
