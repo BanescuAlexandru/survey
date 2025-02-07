@@ -1,0 +1,64 @@
+body {
+    background-color: #ffe6f2;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    color: #ff0066;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    height: 100vh;
+    overflow: hidden; /* Prevent scrolling when images are added */
+}
+
+.container {
+    margin-top: 50px;
+}
+
+h1 {
+    font-size: 2.5em;
+}
+
+p {
+    font-size: 1.2em;
+}
+
+.buttons {
+    margin-top: 30px;
+}
+
+.btn {
+    background-color: #ff66a3;
+    border: none;
+    color: white;
+    padding: 15px 30px;
+    font-size: 1.5em;
+    margin: 10px;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.btn:hover {
+    background-color: #ff3385;
+}
+
+.new-image {
+    position: absolute;
+    width: 100px;
+    height: auto;
+    display: none;
+    transition: transform 0.3s;
+}
+
+.confetti {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    animation: fall linear infinite;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(100vh);
+    }
+}
